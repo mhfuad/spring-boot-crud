@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Programmer's Data</h1>
+    <a href="/allProgrammer">All Programmer</a>
+    <form th:action="addProgrammer" th:object="${programmer}" method="post">
+        <lavel for="name">Name</lavel>
+        <input type="text" name="pName">
+        <lavel for="lang">Language</lavel>
+        <input type="text" name="pLang">
+        <button type="submit">Add programmer</button>
+    </form>
+</body>
+</html>

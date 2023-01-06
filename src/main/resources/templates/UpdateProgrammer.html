@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Update Programmer</title>
+  </head>
+  <body>
+    <h1>Programmer's Data</h1>
+    <a href="/allProgrammer">All Programmer</a>
+    <form th:action="@{/update/{id}(id=${programmer.pId})}" th:object="${programmer}" method="post">
+
+      <lavel for="name">Name</lavel>
+      <input type="text" th:field="*{pName}" id="name" placeholder="Name">
+      <span th:if="${#fields.hasErrors('pName')}" th:errors="*{pName}"></span>
+
+      <lavel for="lang">Language</lavel>
+      <input type="text" th:field="*{pLang}" id="lang" placeholder="Language">
+      <span th:if="${#fields.hasErrors('pLang')}" th:errors="*{pLang}"></span>
+
+      <button type="submit">Update</button>
+    </form>
+  </body>
+</html>

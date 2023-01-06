@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Programmer</title>
+</head>
+<body>
+  <h1>All Programmer</h1>
+  <a href="/">Add Programmer</a>
+  <table>
+    <tr th:each="p: ${programmers}">
+      <td th:text="${p.pId}"></td>
+      <td th:text="${p.pName}"></td>
+      <td th:text="${p.pLang}"></td>
+      <td><a th:href="@{'/edit/'+${p.pId}}">Edit</a></td>
+      <td><a th:href="@{'/delete/'+${p.pId}}">Delete</a></td>
+    </tr>
+  </table>
+</body>
+</html>
