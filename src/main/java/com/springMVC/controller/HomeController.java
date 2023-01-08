@@ -99,4 +99,14 @@ public class HomeController {
         return "redirect:/allProgrammer";
     }
 
+    @PostMapping("/searchProgrammer")
+    public String allProgrammers(@RequestParam String pLang, Model model){
+        List<Programmer> p = pr.findBypLang(pLang);
+
+        model.addAttribute("programmers", p);
+        model.addAttribute("isSearchPage", "true");
+        model.addAttribute("searchValue", pLang);
+        return "AllProgrammer";
+    }
+
 }

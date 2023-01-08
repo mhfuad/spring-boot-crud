@@ -7,8 +7,22 @@
   <title>Programmer</title>
 </head>
 <body>
+
   <h1>All Programmer</h1>
-  <a href="/">Add Programmer</a>
+
+  <th:block th:if="${isSearchPage}">
+    <p th:text="'Search by'+${searchValue}"></p>
+    <a href="/allProgrammer">All Programmer</a>
+  </th:block>
+  <th:block th:unless="${isSearchPage}">
+    <a href="/">Add Programmer</a>
+  </th:block>
+
+  <form th:action="searchProgrammer" th:method="post">
+    <input type="text" name="pLang" placeholder="Language">
+    <button type="submit">Search Programmer</button>
+  </form>
+
   <table>
     <tr th:each="p: ${programmers}">
       <td th:text="${p.pId}"></td>
